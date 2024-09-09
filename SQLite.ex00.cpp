@@ -31,7 +31,7 @@ int main(int argc, char **argv){
   }
 
   rc = sqlite3_open(argv[1], &db);
-  if( rc ){
+  if(rc) {
     // fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
     std::cerr << "Can't open database: " << sqlite3_errmsg(db) << '\n';
     sqlite3_close(db);

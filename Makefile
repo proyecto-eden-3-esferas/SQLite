@@ -7,7 +7,7 @@ sqlite3.o: sqlite3.c
 example: SQLite.ex00.cpp
 	gcc SQLite.ex00.c sqlite3.c
 
-*pp: *.cpp *.h SQLite.o
+*pp: *.cpp *.h sqlite3.o
 	c++    -std=c++23 $< sqlite3.o -o $@
 
 examplepp: SQLite.ex00.cpp sqlite3.o

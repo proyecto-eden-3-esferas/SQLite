@@ -3,4 +3,3 @@ sqlite3.o
 examplepp
 # SQLite.ex00.cpp
 shell.c
-sqlite3.cpp

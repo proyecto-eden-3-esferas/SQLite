@@ -30,13 +30,20 @@ access without running a separate RDBMS process.
 - /usr/share/doc/sqlite3/c3ref/
 
 3. `sqlite3-tools`
+/usr/bin/showdb
+/usr/bin/showjournal
+/usr/bin/showstat4
+/usr/bin/showwal
+/usr/bin/sqldiff
+/usr/bin/sqlite3_analyzer
+
 This package contains various tools such as:
-- /usr/bin/showdb
-- /usr/bin/showjournal
-- /usr/bin/showstat4
-- /usr/bin/showwal
-- /usr/bin/sqldiff
-- /usr/bin/sqlite3_analyzer
+ - showdb
+ - showjournal
+ - showstat4
+ - showwal
+ - sqldiff
+ - sqlite3_analyzer
 
 9MB downloaded
 33MB additional disk space
@@ -54,7 +61,7 @@ Create a DB first:
   sqlite3   mydata.db
 ```
 
-Actually, `man sqlite3` provides enough information to get started.
+Actually, `man sqlite3` provides enough information.
 
 
 # Compiling as C++ (GNU ToolChain)
@@ -65,7 +72,12 @@ So I build with a line like:
 ```
 g++ -std=c++11 -o examplepp SQLite.ex00.cpp sqlite3.o
 ```
-This builds an executable (`examplepp`) that already showcases many of the features of SQLite... it executes SQL code.
+This builds an executable that already showcases many of the features of SQLite... it executes SQL code.
+
+
+# Compiling as C++ (GNU ToolChain)
+
+(Proceed analogously.)
 
 
 # Projects
@@ -75,55 +87,6 @@ A table would hold the text of the notes. Other tables would handle links to oth
 At an advanced, further stage, I would like to deal with notes whose text excedes the alloted number of characters, typically through VARCHAR(NNN). This is a general SQL issue. It is inefficient to define a slot size capable of accomodating the largest imaginable piece of text.
 
 2. An INSERT-generator:
-
 Given a database, SQL code for inserting records or rows into a database is generated. The reverse, reading an SQL file and defing and populating a database would be fairly straightforward. (You may name it "SQL-interpreter".) It would be desirable for the code generated to be "pretty": indented consistently, without redundant space characters, and so on.
 
-
-3. An Intelligent Agenda Manager (*intellegenda*)
-
-- deadlines, appointments, windows or periods (dates)
-
-- forthcoming events, shows etc. which are intesting to attend, view, listen to...
-
-- diary
-
-- view by date
-
-- addresses, webpages, and telephone numbers (contacts for people, shops, organizations, websites...)
-
-- TODOs (tasks; linked to dates such as deadlines, appointments and periods)
-
-- notes (texts, free format, they bear a title and a date, zettelkasten-like)
-
-- new words
-
-- word translations between two languages (such as the German for "home" is "Wohnung")
-
-- texts to translate (into or from your mother tongue or from/into a foreign language)
-
-- TOBUY (prices, features, links to webpages, too; flexible, first come first served or FIFO)
-
-- Ideas (your own ideas to develop; they may overlap your notes)
-
-- Themes (your own ideas as well as materials from elsewhere, possibly organized in sections and subsections, with a TOC and so on)
-
-- Some outstanding, eternal themes are (one's) health, (one's) food, (one's) religious or spiritual life...
-
-- quotes (by others; short and long)
-
-- a mechanism for including pieces of text or information
-
-
-
-4. A RoleGraph:
-
-A RoleGraph is a hypergraph where each link has as many defined roles as its arity. Take a Prolog predicate such as `love/2`. The first argument of `love/2` has role "lover" and the second argument has role "loved".
-
-A relational table holding binary relationships between entities could be built with just three columns: predicate, first_argument, and second_argument.
-
-For n-ary relationships (the general case) you would need:
-- a table for holding relationship instances (columns ID, and relationship class, such as "love")
-- another table holding three columns: relationship_instance, entity, role (its role in the relationship)
-You would also want to have:
-- a table for matching relationship class ID to its name or description
-- a table for matching role ID to its name or description
+3. An Intelligent Agenda Manager
